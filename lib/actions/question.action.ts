@@ -2,10 +2,10 @@
 
 import Question from "@/database/question.modal";
 import { connectToDatabase } from "../mongoose";
-import Tag from "@/database/tag.model";
 import { CreateQuestionParams, GetQuestionsParams } from "./shared.types";
 import User from "@/database/user.modal";
 import { revalidatePath } from "next/cache";
+import Tag from "@/database/tag.modal";
 
 export async function getQuestions(params: GetQuestionsParams) {
   try {
