@@ -1,10 +1,10 @@
 "use server";
 
-import Question from "@/database/question.model";
+import Question from "@/database/question.modal";
 import { connectToDatabase } from "../mongoose";
 import Tag from "@/database/tag.model";
 import { CreateQuestionParams, GetQuestionsParams } from "./shared.types";
-import User from "@/database/user.model";
+import User from "@/database/user.modal";
 import { revalidatePath } from "next/cache";
 
 export async function getQuestions(params: GetQuestionsParams) {
