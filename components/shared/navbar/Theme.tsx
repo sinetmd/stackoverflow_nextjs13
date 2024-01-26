@@ -1,14 +1,13 @@
 "use client";
 
-
 import { useTheme } from "@/context/ThemeProvider";
 
 import {
-    Menubar,
-    MenubarContent,
-    MenubarItem,
-    MenubarMenu,
-    MenubarTrigger
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarTrigger,
 } from "@/components/ui/menubar";
 
 import { themes } from "@/constants";
@@ -25,7 +24,7 @@ const Theme = () => {
          dark:focus:bg-dark-200
           dark:data-[state=open]:bg-dark-200"
         >
-          {mode === "ligth" ? (
+          {mode === "light" ? (
             <Image
               src="/assets/icons/sun.svg"
               alt="sun"
@@ -45,7 +44,7 @@ const Theme = () => {
         </MenubarTrigger>
         <MenubarContent
           className="absolute right-[-3rem] mt-3 min-w-[120px] 
-        rounded border py-2 dark:border-dark-400 dark:bg-dark-300"
+        rounded border bg-light-900 py-2 dark:border-dark-400 dark:bg-dark-300"
         >
           {themes.map((item) => (
             <MenubarItem
@@ -72,7 +71,7 @@ const Theme = () => {
                 className={`body-semibold text-light-500 ${
                   mode === item.value
                     ? "text-primary-500"
-                    : "text-dark-100_light900"
+                    : "text-dark100_light900"
                 }`}
               >
                 {item.label}

@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 interface MetricProps {
   imgUrl: string;
@@ -30,6 +30,7 @@ const Metric = ({
         alt={alt}
         className={`object-contain ${href ? "rounded-full" : ""}`}
       />
+
       <p className={`${textStyles} flex items-center gap-1`}>
         {value}
 
@@ -51,7 +52,6 @@ const Metric = ({
       </Link>
     );
   }
-
   return <div className="flex-center flex-wrap gap-1">{metricContent}</div>;
 };
 
