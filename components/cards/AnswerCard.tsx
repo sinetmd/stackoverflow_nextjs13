@@ -31,8 +31,6 @@ const AnswerCard = ({
   createdAt,
 }: AnswerProps) => {
   const showActionButtons = clerkId && clerkId === author.clerkId;
-  // console.log("ClerkID: ", clerkId);
-  // console.log("Author ClerkID: ", author.clerkId);
 
   return (
     <Link

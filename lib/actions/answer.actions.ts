@@ -47,44 +47,45 @@ export async function createAnswer(params: CreateAnswerParams) {
 
 export async function getAnswers(params: GetAnswersParams) {
   try {
-    connectToDatabase();
+    await connectToDatabase();
 
-    const { questionId, sortBy, page = 1, pageSize = 10 } = params;
+    const { questionId, sortBy, page = 1, pageSize = 7 } = params;
 
     const skipAmount = (page - 1) * pageSize;
 
-    let sortOptions = {};
+    let sortOption = {};
 
     switch (sortBy) {
       case "highestUpvotes":
-        sortOptions = { upvotes: -1 };
+        sortOption = { upvotes: -1 };
         break;
       case "lowestUpvotes":
-        sortOptions = { upvotes: 1 };
+        sortOption = { upvotes: 1 };
         break;
       case "recent":
-        sortOptions = { createdAt: -1 };
+        sortOption = { createdAt: -1 };
         break;
       case "old":
-        sortOptions = { createdAt: 1 };
+        sortOption = { createdAt: 1 };
         break;
+
       default:
         break;
     }
 
     const answers = await Answer.find({ question: questionId })
-      .populate("author", "_id clerkId name picture")
-      .sort(sortOptions)
+      .populate("author", "_id name clerkId picture")
+      .sort(sortOption)
       .skip(skipAmount)
-      .limit(page);
+      .limit(pageSize);
 
-    const totalAnswers = await Answer.countDocuments({ question: questionId });
+    const totalAnswer = await Answer.countDocuments({ question: questionId });
 
-    const isNextAnswers = totalAnswers > skipAmount + answers.length;
-    return { answers, isNextAnswers };
+    const isNextAnswer = totalAnswer > skipAmount + answers.length;
+
+    return { answers, isNextAnswer };
   } catch (error) {
     console.log(error);
-    throw error;
   }
 }
 
