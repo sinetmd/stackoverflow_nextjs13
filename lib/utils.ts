@@ -78,7 +78,7 @@ export const getJoinedDate = (dateObject: Date): string => {
     throw new Error("Invalid Date object");
   }
 
-  const month = dateObject.toLocaleDateString("defualt", { month: "long" });
+  const month = dateObject.toLocaleDateString("default", { month: "long" });
   const year = dateObject.getFullYear();
 
   // create a joined date string (e.g "July 2023")

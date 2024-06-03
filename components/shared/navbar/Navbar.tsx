@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { SignedIn, UserButton } from "@clerk/nextjs";
-import Theme from "./Theme";
+import Image from "next/image";
+import Link from "next/link";
 import MobileNav from "./MobileNav";
 import GlobalSearch from "./search/GlobalSearch";
+import Theme from "./Theme";
 // import GlobalSearch from "../search/GlobalSearch";
 
 const Navbar = () => {
